@@ -1,2 +1,2 @@
-# VTL-4004
-VTL Interpreter for 4004 Evaluation Board
+# VTL4004
+VTL Interpreter for Intel 4004 Evaluation Board
