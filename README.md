@@ -15,7 +15,7 @@ If necessary, please use a translation service such as DeepL (I recommend this) 
 |項目|内容|備考|
 |------|----------|---|
 |CPU|4004|
-|行番号| 1〜32676|32767はSTOP用|
+|行番号| 1〜32766|32767はSTOP用|
 |コメント|;=0 |偽の条件文で行末までスキップする|
 |単純変数|A-Z|a-zも書けるが大文字小文字を区別しない|
 |単純変数ビット数|16||
