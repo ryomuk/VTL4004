@@ -21,17 +21,17 @@ If necessary, please use a translation service such as DeepL (I recommend this) 
 - 16進表示2桁(?$=)
 - 16進表示4桁(??=)
 
-### 実装しようと思ったけどペンディング
-- PEEK(@(address)右辺)
-- POKE(@(address)左辺)
-
 ### 未実装
 - 行の編集(挿入，削除等)
   - 最初から行番号昇順のプログラムを入力が前提
 - 配列
 - 乱数
-- 乗算の上位16bit
 - メモリ上限管理('*')
+
+### 実装しようと思ったけどペンディング
+- PEEK(@(address)右辺)
+- POKE(@(address)左辺)
+- 乗算の上位16bit
 
 ## 実験用ボードの仕様
 - CPU: Intel 4004
