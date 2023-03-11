@@ -48,9 +48,9 @@ If necessary, please use a translation service such as DeepL (I recommend this) 
 |システム(乱数)|'|未実装|
 |実行| #=1||
 
-### その他の未実装な機能
+### 重要な未実装な機能
 - 行の編集(挿入，削除等)
-  - 最初から行番号昇順のプログラムを入力が前提
+  - 最初から行番号昇順のプログラムを入力することを前提にしています．
 
 ### 実装しようと思ったけどペンディング
 - PEEK(@(address)右辺)
