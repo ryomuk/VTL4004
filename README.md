@@ -38,7 +38,7 @@ If necessary, please use a translation service such as DeepL (I recommend this) 
 |STOP|#=32767||
 |IF|;=||
 |LIST|0||
-|式の優先順位|無()||
+|式の優先順位|無()|式は左から順に評価される|
 |算術演算子|+-*/||
 |単項演算子|-||
 |比較演算子|=<>|>は>=の意味(オリジナルのVTLと同じ)|
