@@ -82,7 +82,9 @@ Youtubeで関連動画を公開しています．
 
 ## 参考にした文献，サイト
 ### VTL関連
--
+- [MITS_Altair_680_Very_Tiny_Language_VTL-2_Manual.PDF](https://manx-docs.org/mirror/harte/Altair/MITS_Altair_680_Very_Tiny_Language_VTL-2_Manual.PDF)
+- 白石孝次「マイクロBASICインタプリタの製作」, 月刊ASCII, 1978年2月(エンサイクロペディアASCII vol.1収録)
+- [Jun's Homepage VTL系言語の歴史](https://www.mztn.org/rvtl/vtltabl.html)
 
 ### 4004関連開発事例
 - [Intel 4004  50th Anniversary Project](https://www.4004.com/)
