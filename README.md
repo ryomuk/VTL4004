@@ -78,7 +78,7 @@ Youtubeで関連動画を公開しています．
 
 ## ブログ
 関連する情報が書いてあるかも．
-- https://blog.goo.ne.jp/tk-80
+- [Intel 4004 関連記事の目次@ブログの練習](https://blog.goo.ne.jp/tk-80/e/3fa1e2972737c7b7d1b83f4e7bd648a2)
 
 ## 参考にした文献，サイト
 ### VTL関連
