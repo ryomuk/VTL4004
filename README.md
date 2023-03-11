@@ -21,7 +21,7 @@ If necessary, please use a translation service such as DeepL (I recommend this) 
 |単純変数|A-Z|a-zも書けるが大文字小文字を区別しない|
 |単純変数ビット数|16||
 |単純変数範囲|-32768〜32767||
-|16進定数|0xxxx|0で始まる数値|
+|16進定数|0xxxx|0で始まる数値．例:0FF, 02000|
 |配列|未実装||
 |数値入力|A=?||
 |数値出力|?=e||
