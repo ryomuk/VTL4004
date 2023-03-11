@@ -11,7 +11,7 @@ If necessary, please use a translation service such as DeepL (I recommend this) 
 自作の4004実験用ボードにVTLを実装しました．
 
 
-## VTLの仕様
+## VTL4004の主な仕様
 ### オリジナルのVTLとの違い
 - 変数は-32768〜32767
   - それに伴い，行番号も32767まで
