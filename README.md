@@ -17,7 +17,7 @@ If necessary, please use a translation service such as DeepL (I recommend this) 
 |CPU|Intel 4004|
 |サイズ|約3.5KB|簡易モニタを含む|
 |行番号| 1〜32766|32767はSTOP用|
-|コメント|;=0 |偽の条件文で行末までスキップする|
+|コメント|;=0 STR|偽の条件文で行末までスキップするのを利用|
 |単純変数|A-Z|a-zも書けるが大文字小文字を区別しない|
 |単純変数ビット数|16||
 |単純変数範囲|-32768〜32767||
