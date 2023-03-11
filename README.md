@@ -11,6 +11,8 @@ If necessary, please use a translation service such as DeepL (I recommend this) 
 自作の4004実験用ボードと，その上で動作するVTLインタプリタです．
 
 ## 主な仕様
+
+|項目|内容|備考|
 |------|----------|---|
 |CPU|4004|
 |行番号| 1-32677||
@@ -24,7 +26,6 @@ If necessary, please use a translation service such as DeepL (I recommend this) 
 |数値出力|?=e||
 |数値出力16進2桁|?$=e||
 |数値出力16進4桁|??=e||
-|------|----------|---|
 
 ### その他の未実装な機能
 - 行の編集(挿入，削除等)
