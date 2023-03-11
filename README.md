@@ -14,7 +14,7 @@ If necessary, please use a translation service such as DeepL (I recommend this) 
 
 |項目|内容|備考|
 |------|----------|---|
-|CPU|4004|
+|CPU|Intel 4004|
 |サイズ|約3.5KB|簡易モニタを含む|
 |行番号| 1〜32766|32767はSTOP用|
 |コメント|;=0 |偽の条件文で行末までスキップする|
