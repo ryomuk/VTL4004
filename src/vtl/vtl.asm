@@ -1,5 +1,5 @@
 ;;;---------------------------------------------------------------------------
-;;; Tiny Monitor with Very Very Tiny Language Interpreter (VTL-4004)
+;;; Tiny Monitor with Very Tiny Language Interpreter (VTL-4004)
 ;;; for Intel 4004 evaluation board
 ;;;
 ;;; by Ryo Mukai
