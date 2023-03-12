@@ -3,7 +3,7 @@
 ;;; for Intel 4004 evaluation board
 ;;;
 ;;; by Ryo Mukai
-;;; 2023/03/11
+;;; 2023/03/12
 ;;;---------------------------------------------------------------------------
 
 ;;;---------------------------------------------------------------------------
@@ -206,19 +206,14 @@ CMD_LOOP:
 L_CR:
 	JMS GETCHAR_P1
         JMS DISPLED_P1
-	FIM P0, '\r'
-	JMS CMP_P0P1
-	JCN Z, L_CR		; skip CR
-
-	JMS PUTCHAR_P1		; echo input
-
-	FIM P0, '\n'
-	JMS CMP_P0P1
-	JCN ZN, L0
-	JMS PRINT_CR		; put CR
+	JMS ISCRLF_P1
+	JCN Z, L0
+	JMS PRINT_CRLF
 	JUN CMD_LOOP
 
 L0:
+	JMS PUTCHAR_P1
+	
 	FIM P0, 'r'		; read data memory
 	JMS CMP_P0P1
 	JCN ZN, L1
@@ -780,6 +775,7 @@ VTL_EXEC_L4:
 	NOP
 	NOP
 	NOP
+	NOP
 	JCN Z, VTL_EXEC_GOSUB
 	JUN VTL_EXEC_L5
 VTL_EXEC_GOSUB:
@@ -995,8 +991,6 @@ EVAL_O2:
 EVAL_O3:
 	FIM P7, '/'
 	JMS CMPEQ_P2P7
-	NOP
-	NOP
 	NOP
 	NOP
 	JCN ZN, EVAL_O4
@@ -2460,7 +2454,7 @@ COMMAND_PMB:
 ;;;    PM12(BA98.7654.3210)
 ;;;   -> PM(3210.7654.BA98) BANK=3210, ADD=7654BA98
 ;;; 
-;;;    PM16(FEDC.BA98.7654.3210)
+;;;    PM16(FEDC.BA98.7654.3210) (not yet implemented)
 ;;;   -> PM(7654.3210.FEDC.BA98) BANK=BA98.7654 ADD=3210FEDC
 ;;;---------------------------------------------------------------------------
 ;;;---------------------------------------------------------------------------
@@ -2724,18 +2718,10 @@ GETLINE_PM12REG16P0:
 GETLINE_LOOP:
 	JMS GETCHAR_P1		; P1 = getchar()
 
-	FIM P7, '\r'
-	JMS CMP_P1P7
-	JCN Z, GETLINE_LOOP	; skip CR
-
-	FIM P7, '\n'		; LF
-	JMS CMP_P1P7
-	JCN ZN, GETLINE_L1
-
-	FIM P1, '\r'
-	JMS PUTCHAR_P1
-	FIM P1, '\n'		; put CRLF
-	JMS PUTCHAR_P1
+	JMS ISCRLF_P1
+	JCN Z, GETLINE_L1
+	JMS PRINT_CR
+	JMS PRINT_LF
 	JUN GETLINE_EXIT
 GETLINE_L1:
 	FIM P7, 08H		; backspace
@@ -2772,7 +2758,6 @@ GETLINE_EXIT:
 	JMS POP_P1		; restore P1
 	JMS POP_P0		; restore P0
 	BBL 0
-
 
 ;;;----------------------------------------------------------------------------
 ;;; GETNUMBER_PM12REG16P0_REG16P1
@@ -2887,6 +2872,14 @@ COMMAND_LMR:
 	LD R3
 	CMA			;R11=15-R3 for ISZ loop(R3+1)
 	XCH R11
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
+	NOP
 COMMAND_LMR_VLOOP:
 	JMS PRINT_CRLF
 	FIM P1, REG16_TMP
@@ -2939,14 +2932,9 @@ COMMAND_LMW_LOOP:
 	FIM P1, ':'
 	JMS PUTCHAR_P1
 
-COMMAND_LMW_SKIPCR:
 	JMS GETCHAR_P1
-	FIM P0, '\r'
-	JMS CMP_P0P1
-	JCN Z, COMMAND_LMW_SKIPCR	; skip CR
-	FIM P0, '\n'
-	JMS CMP_P0P1
-	JCN Z, COMMAND_LMW_EXIT
+	JMS ISCRLF_P1
+	JCN ZN, COMMAND_LMW_EXIT
 	JMS PUTCHAR_P1
 	JMS CTOI_P1
 	LD R3
@@ -3259,6 +3247,28 @@ CMDPMC_L1:
 	JUN CMD_LOOP		; return to command loop
 
 
+;;;---------------------------------------------------------------------------
+;;; ISCRLF_P1
+;;; check if P1=='\r' | P1=='\n'
+;;; input: P0
+;;; output: ACC=1 if P1=='\r' || P1=='\n'
+;;;         ACC=0 P1!='\r' && P1!='\n'
+;;;---------------------------------------------------------------------------
+ISCRLF_P1:
+	LD R2
+	JCN NZ, ISCRLF_EXIT0	; check upper 4bit
+	CLC
+	LDM '\r'
+	SUB R3
+	JCN Z, ISCRLF_EXIT1	; check lower 4bit
+	CLC
+	LDM '\n'
+	SUB R3
+	JCN Z, ISCRLF_EXIT1	; check lower 4bit
+ISCRLF_EXIT0:
+	BBL 0
+ISCRLF_EXIT1:
+	BBL 1
 ;;;----------------------------------------------------------------------------
 ;;; I/O and some basic routines located in Page 0D00H
 ;;;----------------------------------------------------------------------------
