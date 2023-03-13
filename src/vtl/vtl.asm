@@ -339,7 +339,7 @@ ISHEX_FALSE:
 	BBL 0
 
 ;;;---------------------------------------------------------------------------
-;;; Program for Very Very Tiny Language Interpreter
+;;; Program for Very Tiny Language Interpreter
 ;;;---------------------------------------------------------------------------
 	org 0100H
 
@@ -2445,17 +2445,15 @@ COMMAND_PMB:
 ;;;---------------------------------------------------------------------------
 ;;; PM12
 ;;; Logical program memory with 12 bit address space
-;;; Phisical PM is 254byte(00H to 0FD)x16 bank memory
-;;; PM12 is a logical memory space (000H to FFFH) mapped to Phisical PM
+;;; Physical PM is 254byte(00H to 0FD)x16 bank memory
+;;; PM12 is a logical memory space (000H to FFFH) mapped to Physical PM
 ;;; FFEH-FFFH  in each bank is used for PM_READ_P0_P1(2 byte subroutine
 ;;; to read the PM of the bank)
 ;;; PM12 is a 000H-FDF flat space.
 ;;; 
 ;;;    PM12(BA98.7654.3210)
-;;;   -> PM(3210.7654.BA98) BANK=3210, ADD=7654BA98
+;;;   -> PM(3210.BA98.7654) BANK=3210, ADD=BA98.7654
 ;;; 
-;;;    PM16(FEDC.BA98.7654.3210) (not yet implemented)
-;;;   -> PM(7654.3210.FEDC.BA98) BANK=BA98.7654 ADD=3210FEDC
 ;;;---------------------------------------------------------------------------
 ;;;---------------------------------------------------------------------------
 ;;; LD_P1_PM12REG16P0
